@@ -1,4 +1,7 @@
 package com.javaex.practice2;
+
+import java.util.Scanner;
+
 //다음과 같이 수익을 입력 받아 소득세를 계산하는 프로그램을 작성하세요
 //⚫ 세금계산법
 //⚫ 0원이상 1000만원 이하인 경우 tax: 0.09*수익
@@ -8,7 +11,32 @@ package com.javaex.practice2;
 public class Ex17 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		int rev;
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("수익을 입력해 주세요.");
+		System.out.println("금익: ");
+		rev = scanner.nextInt();
+		double tax;
+		if (rev>=0 && rev<=1000) {
+			tax = 0.09 * rev;
+			System.out.println("소득세는 " + tax + "입니다.");
+		} else if (rev>1000 && rev<=4000) {
+			tax = 1000 * 0.09 + 0.18*(rev-1000);
+			System.out.println("소득세는 " + tax + "입니다.");
+		} else if (rev>4000 && rev<=8000) {
+			tax = 1000*0.09 + 3000*0.18 + 0.27*(rev-4000);
+			System.out.println("소득세는 " + tax + "입니다.");
+		} else if (rev>=8000) {
+			tax = 1000*0.09 + 3000*0.18 + 4000*0.27 + 0.36*(rev-8000);
+			System.out.println("소득세는 " + tax + "입니다.");
+		} else {
+			System.out.println("잘못 입력했습니다.");
+		}
+		scanner.close();
+			
+		
 
 	}
 
